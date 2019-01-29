@@ -1,0 +1,8 @@
+<resources>
+    <string name="app_name">Math 101</string>
+    <string name="titleFont">50sp</string>
+    <string name="title">Math 4 Fun</string>
+    <string name="easy">Beginner</string>
+    <string name="medium">Medium</string>
+    <string name="hard">Hard</string>
+</resources>
