@@ -34,8 +34,13 @@ public class DiffLevels extends AppCompatActivity implements View.OnClickListene
         setContentView(R.layout.activity_level);
         problem = findViewById(R.id.problem);
         pointSystem = findViewById(R.id.points);
+        answer = findViewById(R.id.mchoice1);
+        answer2 = findViewById(R.id.mchoice2);
+        answer3 = findViewById(R.id.mchoice3);
+        answer4 = findViewById(R.id.mchoice4);
         buttons = new ArrayList<>();
-        AlertDialog.Builder builder = new AlertDialog.Builder(this);
+
+        /*AlertDialog.Builder builder = new AlertDialog.Builder(this);
 
         builder.setPositiveButton("Retry", new DialogInterface.OnClickListener() {
             @Override
@@ -44,6 +49,7 @@ public class DiffLevels extends AppCompatActivity implements View.OnClickListene
                 generateProblem();
             }
         });
+        */
 
 
 
@@ -54,7 +60,7 @@ public class DiffLevels extends AppCompatActivity implements View.OnClickListene
     }
 
     private void initial(){
-        Intent level = getIntent();
+       Intent level = getIntent();
         switch(level.getStringExtra("level")){
             case "Easy":
                 numberRange = 10;
@@ -69,6 +75,7 @@ public class DiffLevels extends AppCompatActivity implements View.OnClickListene
                 numberRange = 10;
                 break;
         }
+
         signs = new String[]{"+", "-"};
         randNumber = new Random();
         int []buttonID = new int[]{R.id.mchoice1, R.id.mchoice2, R.id.mchoice3, R.id.mchoice4};
