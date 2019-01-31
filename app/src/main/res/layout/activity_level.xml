@@ -61,7 +61,7 @@
             android:layout_height="@dimen/buttonSize"
             android:layout_weight="1"
             android:background="@color/lightB"
-            android:text="Button" />
+             />
 
         <Button
             android:id="@+id/mchoice2"
@@ -70,7 +70,7 @@
             android:layout_height="@dimen/buttonSize"
             android:layout_weight="1"
             android:background="@color/lightB"
-            android:text="Button" />
+             />
     </LinearLayout>
 
     <LinearLayout
@@ -95,7 +95,7 @@
             android:layout_height="@dimen/buttonSize"
             android:layout_weight="1"
             android:background="@color/lightB"
-            android:text="Button" />
+            />
 
         <Button
             android:id="@+id/mchoice4"
@@ -104,7 +104,7 @@
             android:layout_height="@dimen/buttonSize"
             android:layout_weight="1"
             android:background="@color/lightB"
-            android:text="Button" />
+             />
     </LinearLayout>
 
     <Button
@@ -133,7 +133,7 @@
         android:layout_marginTop="436dp"
         android:layout_marginEnd="8dp"
         android:layout_marginRight="8dp"
-        android:text="Button"
+
 
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.027"

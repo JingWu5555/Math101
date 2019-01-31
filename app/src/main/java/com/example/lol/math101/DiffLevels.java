@@ -11,7 +11,7 @@ import android.widget.ProgressBar;
 import android.widget.TextView;
 
 
-import com.example.lol.math101.R;
+
 
 import java.util.ArrayList;
 import java.util.Random;
@@ -80,7 +80,7 @@ public class DiffLevels extends AppCompatActivity implements View.OnClickListene
         randNumber = new Random();
         int []buttonID = new int[]{R.id.mchoice1, R.id.mchoice2, R.id.mchoice3, R.id.mchoice4};
         for(int i = 0; i < 4; i++){
-            buttons.add((Button)findViewById(buttonID[i]));
+            buttons.add(((Button)findViewById(buttonID[i])));
         }
 
 
@@ -89,6 +89,7 @@ public class DiffLevels extends AppCompatActivity implements View.OnClickListene
         answer3.setOnClickListener(this);
         answer4.setOnClickListener(this);
         generateProblem();
+        generateAnswers();
 
     }
 
@@ -103,7 +104,7 @@ public class DiffLevels extends AppCompatActivity implements View.OnClickListene
             solution = number - number2;
         else
             solution = number + number2;
-        return String.valueOf(number) + " " + x + String.valueOf(number2);
+        return String.valueOf(number) + " " + x + " " + String.valueOf(number2);
     }
     private void generateProblem(){
         int number = randNumber.nextInt(numberRange);
@@ -134,6 +135,7 @@ public class DiffLevels extends AppCompatActivity implements View.OnClickListene
         if(v instanceof Button){
             checkAnswers(Integer.parseInt(((Button)v).getText().toString()));
             generateProblem();
+            generateAnswers();
 
         }
     }
