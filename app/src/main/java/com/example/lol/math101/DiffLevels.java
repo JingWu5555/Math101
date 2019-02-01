@@ -39,9 +39,17 @@ public class DiffLevels extends AppCompatActivity implements View.OnClickListene
         answer3 = findViewById(R.id.mchoice3);
         answer4 = findViewById(R.id.mchoice4);
         buttons = new ArrayList<>();
-
-        /*AlertDialog.Builder builder = new AlertDialog.Builder(this);
-
+        TextView endMessage = new TextView(this);
+        AlertDialog.Builder builder = new AlertDialog.Builder(this);
+        builder.setTitle("Game Ended");
+        builder.setNegativeButton("Exit", new DialogInterface.OnClickListener() {
+            @Override
+            public void onClick(DialogInterface dialog, int which) {
+                dialog.cancel();
+                finish();
+                System.exit(0);
+            }
+        });
         builder.setPositiveButton("Retry", new DialogInterface.OnClickListener() {
             @Override
             public void onClick(DialogInterface dialog, int which) {
@@ -49,7 +57,7 @@ public class DiffLevels extends AppCompatActivity implements View.OnClickListene
                 generateProblem();
             }
         });
-        */
+        popUp = builder.create();
 
 
 
@@ -109,16 +117,16 @@ public class DiffLevels extends AppCompatActivity implements View.OnClickListene
     private void generateProblem(){
         int number = randNumber.nextInt(numberRange);
         int number2 = randNumber.nextInt(numberRange);
-        String operation = signs[randNumber.nextInt(1)];
+        String operation = signs[randNumber.nextInt(2)];
         String temp = randomOperation(operation, number, number2);
         problem.setText(temp);
         counter++;
     }
 
     private void generateAnswers(){
-        int randomNumber = randNumber.nextInt(4);
+        int randomNumber = randNumber.nextInt(5);
         for(int i = 0; i < 4; i++){
-            int temp = randNumber.nextInt(20);
+            int temp = randNumber.nextInt(21);
             buttons.get(i).setText("" + temp);
         }
         buttons.get(randomNumber).setText("" + solution);
