@@ -9,6 +9,7 @@
 
     <TextView
         android:id="@+id/problem"
+        android:textSize="@dimen/textSize"
         android:layout_width="345dp"
         android:layout_height="136dp"
         android:layout_marginStart="8dp"
@@ -108,7 +109,7 @@
     </LinearLayout>
 
     <Button
-        android:id="@+id/button"
+        android:id="@+id/next"
         style="?android:attr/borderlessButtonStyle"
         android:layout_width="59dp"
         android:layout_height="46dp"
@@ -121,22 +122,6 @@
         android:background="@drawable/next"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.964"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
-
-    <Button
-        android:id="@+id/button2"
-        android:layout_width="71dp"
-        android:layout_height="47dp"
-        android:layout_marginStart="8dp"
-        android:layout_marginLeft="8dp"
-        android:layout_marginTop="436dp"
-        android:layout_marginEnd="8dp"
-        android:layout_marginRight="8dp"
-
-
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.027"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 

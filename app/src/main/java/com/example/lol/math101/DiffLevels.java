@@ -24,6 +24,7 @@ public class DiffLevels extends AppCompatActivity implements View.OnClickListene
     private TextView problem;
     private int counter;
     private int percent;
+
     private ArrayList<Button> buttons;
     AlertDialog popUp;
     private ProgressBar pointSystem;
@@ -129,11 +130,17 @@ public class DiffLevels extends AppCompatActivity implements View.OnClickListene
             int temp = randNumber.nextInt(21);
             buttons.get(i).setText("" + temp);
         }
+
         buttons.get(randomNumber).setText("" + solution);
     }
     private void checkAnswers(int userAnswer){
         if(userAnswer == solution){
             pointSystem.incrementProgressBy(1);
+            problem.setText("GOOD JOB!! PRESS BOTTOM-RIGHT BUTTON TO CONINUE");
+        }
+        else{
+            String wrong = "Sorry wrong answer." + "Correct Answer: " + solution;
+            problem.setText(wrong);
         }
 
     }
@@ -142,9 +149,12 @@ public class DiffLevels extends AppCompatActivity implements View.OnClickListene
     public void onClick(View v) {
         if(v instanceof Button){
             checkAnswers(Integer.parseInt(((Button)v).getText().toString()));
-            generateProblem();
-            generateAnswers();
+            if(v.getId() == R.id.next){
+                generateProblem();
+                generateAnswers();
+            }
 
         }
+
     }
 }
