@@ -56,6 +56,7 @@ public class DiffLevels extends AppCompatActivity implements View.OnClickListene
             public void onClick(DialogInterface dialog, int which) {
                 dialog.cancel();
                 generateProblem();
+                generateAnswers();
             }
         });
         popUp = builder.create();
