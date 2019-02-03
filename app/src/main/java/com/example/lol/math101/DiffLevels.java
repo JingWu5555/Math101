@@ -17,6 +17,7 @@ import java.util.ArrayList;
 import java.util.Random;
 
 // activity for the levels
+//added alertdialog
 public class DiffLevels extends AppCompatActivity implements View.OnClickListener{
     private int numberRange;
     private String []signs;
