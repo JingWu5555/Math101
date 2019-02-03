@@ -16,6 +16,7 @@ import android.widget.TextView;
 import java.util.ArrayList;
 import java.util.Random;
 
+// activity for the levels
 public class DiffLevels extends AppCompatActivity implements View.OnClickListener{
     private int numberRange;
     private String []signs;
