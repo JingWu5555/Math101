@@ -17,13 +17,13 @@ import java.util.ArrayList;
 import java.util.Random;
 
 // activity for the levels
-//added alertdialog
+
 public class DiffLevels extends AppCompatActivity implements View.OnClickListener{
     private int numberRange;
     private String []signs;
     private int solution;
     private Random randNumber;
-    private AlertDialog.Builder builder;
+
     private TextView problem;
     private int counter;
     private int percent;
@@ -44,25 +44,8 @@ public class DiffLevels extends AppCompatActivity implements View.OnClickListene
         answer4 = findViewById(R.id.mchoice4);
         buttons = new ArrayList<>();
         TextView endMessage = new TextView(this);
-        builder = new AlertDialog.Builder(this);
-        builder.setTitle("Game Ended");
-        builder.setNegativeButton("Exit", new DialogInterface.OnClickListener() {
-            @Override
-            public void onClick(DialogInterface dialog, int which) {
-                dialog.cancel();
-                finish();
-                System.exit(0);
-            }
-        });
-        builder.setPositiveButton("Retry", new DialogInterface.OnClickListener() {
-            @Override
-            public void onClick(DialogInterface dialog, int which) {
-                dialog.cancel();
-                generateProblem();
-                generateAnswers();
-            }
-        });
 
+        counter = 0;
 
 
 
@@ -129,7 +112,7 @@ public class DiffLevels extends AppCompatActivity implements View.OnClickListene
     }
 
     private void generateAnswers(){
-        int randomNumber = randNumber.nextInt(5);
+        int randomNumber = randNumber.nextInt(4);
         for(int i = 0; i < 4; i++){
             int temp = randNumber.nextInt(21);
             buttons.get(i).setText("" + temp);
@@ -140,12 +123,10 @@ public class DiffLevels extends AppCompatActivity implements View.OnClickListene
     private void checkAnswers(int userAnswer){
         if(userAnswer == solution){
             pointSystem.incrementProgressBy(1);
-            problem.setText("GOOD JOB!! PRESS BOTTOM-RIGHT BUTTON TO CONINUE");
+
         }
-        else{
-            String wrong = "Sorry wrong answer." + "Correct Answer: " + solution;
-            problem.setText(wrong);
-        }
+        generateProblem();
+        generateAnswers();
 
     }
 
@@ -153,18 +134,7 @@ public class DiffLevels extends AppCompatActivity implements View.OnClickListene
     public void onClick(View v) {
         if(v instanceof Button){
             checkAnswers(Integer.parseInt(((Button)v).getText().toString()));
-            if(v.getId() == R.id.next){
-                if(counter <= 10){
-                    generateProblem();
-                    generateAnswers();
-                }
-                else{
-                    builder.setMessage("Score: " + pointSystem.getProgress() + "/10");
-                    popUp = builder.create();
-                    popUp.show();
-                }
 
-            }
 
         }
 

@@ -12,7 +12,7 @@ import android.widget.Button;
 
 
 public class MainActivity extends AppCompatActivity implements View.OnClickListener {
-    private Button easy, hard;
+    private Button easy, hard, medium;
     private String levelDiff;
 
 
@@ -21,8 +21,11 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
         easy = findViewById(R.id.easyButton);
-        hard = findViewById(R.id.mediumButton);
+        medium = findViewById(R.id.mediumButton);
+        hard = findViewById(R.id.hardButton);
         easy.setOnClickListener(this);
+        medium.setOnClickListener(this);
+        hard.setOnClickListener(this);
 
     }
 
