@@ -24,6 +24,7 @@ public class DiffLevels extends AppCompatActivity implements View.OnClickListene
     private int solution;
     private Random randNumber;
 
+    private AlertDialog show;
     private TextView problem;
     private int counter;
     private int percent;
@@ -47,11 +48,32 @@ public class DiffLevels extends AppCompatActivity implements View.OnClickListene
 
         counter = 0;
 
+        AlertDialog.Builder builder = new AlertDialog.Builder(this);
 
+        builder.setPositiveButton("Exit", new DialogInterface.OnClickListener() {
+            @Override
+            public void onClick(DialogInterface dialog, int which) {
+                dialog.dismiss();
+                finish();
+                System.exit(0);
+
+            }
+        });
+
+        builder.setNegativeButton("Retry", new DialogInterface.OnClickListener() {
+            @Override
+            public void onClick(DialogInterface dialog, int which) {
+                dialog.dismiss();
+                counter = 1;
+                pointSystem.setProgress(0);
+                generateProblem();
+                generateAnswers();
+            }
+        });
 
 
         initial();
-
+        show = builder.create();
 
     }
 
@@ -134,7 +156,10 @@ public class DiffLevels extends AppCompatActivity implements View.OnClickListene
     public void onClick(View v) {
         if(v instanceof Button){
             checkAnswers(Integer.parseInt(((Button)v).getText().toString()));
-
+            if(counter > 10){
+                show.setMessage("Score: "  + pointSystem.getProgress() + "/10");
+                show.show();
+            }
 
         }
 
